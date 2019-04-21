@@ -3,32 +3,32 @@
  */
 package basiclibrary;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
 //    public boolean someLibraryMethod() {
 //        return true;
 //    }
 
-//feature 1:
+//Lab 02 feature 1:
 //Write a method called roll that accepts an integer n and rolls a d6 n times. This method should return an array containing the values of the rolls.
 //example: roll(4) returns [3, 2, 1, 5]
 
 //    public class dieRoll {
-        public static int n = 4;
-            public static void main(String[] args) {
-            int[] die  = new int[6];
-            for (int i = 0, i < 6; i++) die[i] = 0;
-
-            for (int k = 0; k < n; k++) {
-                int roll = (int) (6* Math.random() + 1);
-                die[roll]++;
-            }
-            System.out.println("roll" + n);
-        }
-        for (int i = 1; i < 7; i++)
-            System.out.println(Arrays.toString(die));
-    }
+//        public static int n = 4;
+//            public static void main(String[] args) {
+//            int[] die  = new int[6];
+//            for (int i = 0, i < 6; i++) die[i] = 0;
+//
+//            for (int k = 0; k < n; k++) {
+//                int roll = (int) (6* Math.random() + 1);
+//                die[roll]++;
+//            }
+//            System.out.println("roll" + n);
+//        }
+//        for (int i = 1; i < 7; i++)
+//            System.out.println(Arrays.toString(die));
+//    }
 
 
 //    public static void main(String[] args) {
@@ -49,6 +49,37 @@ public class Library {
 //            System.out.println(random);
 //        }
 //    }
+    //Lab 03 feature 1: Iterate through data to find min and max values using HashSet of type Integet to keep track of all unigue temperateures. Iterate from min temp to max temp and print any temps not seen.
+   public static void main(String[] args) {
+      int[][] weeklyMonthTemperatures = {
+              {66, 64, 58, 65, 71, 57, 60},
+              {57, 65, 65, 70, 72, 65, 51},
+              {55, 54, 60, 53, 59, 57, 61},
+              {65, 56, 55, 52, 55, 62, 57}
+      };
+
+      analyzeWeatherData(weeklyMonthTemperatures);
+      }
+
+      public static void analyzeWeatherData(int[][] weather) {
+
+          HashSet<Integer> set = new HashSet<>();
+
+          for (int i = 0; i < weather.length; i++) {
+              for (int j = 0; j < weather[i].length; j++) {
+                  set.add(weather[i][j]);
+              }
+
+            }
+      int maxTemp = (Collections.max(set));
+      int minTemp = (Collections.min(set));
+        for (int k = minTemp; k < maxTemp; k++) {
+            if (!set.contains(k)) {
+                System.out.println("Never saw temperature:" + k);
+            }
+        }
+          System.out.println("High:" + maxTemp + " " + "Low:" + minTemp);
+        }
 }
 
 

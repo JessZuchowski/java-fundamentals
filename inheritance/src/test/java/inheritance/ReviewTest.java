@@ -29,5 +29,20 @@ public class ReviewTest {
 
     @Test
     public void toString1() {
+        Review rev1 = new Review("Top notch", "anon1", 4);
+        Review rev2 = new Review("would recommend", "anon2", 3);
+        Review rev3 = new Review("great spot", "anon3", 4);
+
+        String expected1 = "Top notch anon1 4";
+        String actual1 = rev1.toString();
+        assertEquals(expected1, actual1);
+
+        String expected2 = "would recommend anon2 3";
+        String actual2 = rev2.toString();
+        assertEquals(expected2, actual2);
+
+        String expected3 = "great spot anon3 4";
+        String actual3 = rev3.toString();
+        assertEquals(expected3, actual3);
     }
 }

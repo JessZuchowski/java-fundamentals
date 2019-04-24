@@ -1,9 +1,16 @@
 package inheritance;
 
 public class Review {
-    String body;
-    String author;
-    int numberOfStars;
+    public String body;
+    public String author;
+    public int numberOfStars;
+
+    /**
+     *
+     * @param body
+     * @param author
+     * @param numberOfStars
+     */
 
     Review(String body, String author, int numberOfStars) {
         this.body = body;

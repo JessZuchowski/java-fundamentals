@@ -1,5 +1,7 @@
 # Lab 06: Composition and Inheritance
 
+Java practice in inheritance by creating a restaurant review app. 
+
 ## Feature Tasks:
 
 1. Create a class to represent a Restaurant. Each restaurant should have a name, number of stars, and a price category. Implement a toString method and test it. Write a test to create an instance of Restaurant and ensure that toString is working. 

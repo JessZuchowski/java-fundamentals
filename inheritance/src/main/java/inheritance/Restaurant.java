@@ -3,15 +3,31 @@
  */
 package inheritance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Restaurant {
-    int numberOfStars;
-    String name;
-    int priceCategory;
+    public int numberOfStars;
+    public String name;
+    public int priceCategory;
+
+    /**
+     *
+     * @param numberOfStars
+     * @param name
+     * @param priceCategory
+     */
+    public List<Review> review = new ArrayList<>();
 
     Restaurant(int numberOfStars, String name, int priceCategory) {
         this.numberOfStars = numberOfStars;
         this.name = name;
         this.priceCategory = priceCategory;
+    }
+
+    public void addReview(String body, String author, int numberOfStars) {
+        Review review = new Review(body, author, numberOfStars);
+        this.review.add(review);
     }
 
     public String toString() {

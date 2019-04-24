@@ -31,6 +31,7 @@ public class Restaurant {
     }
 
     public String toString() {
+
         return numberOfStars + " " + name + " " + priceCategory;
     }
 }

@@ -29,10 +29,22 @@ public class RestaurantTest1 {
 
     @Test
     public void toString1() {
+        Restaurant r1 = new Restaurant(4, "CJs Pub", 4);
+        Restaurant r2 = new Restaurant(3, "DDs Tavern", 3);
+        Restaurant r3 = new Restaurant(5, "MZs Pour House", 4);
 
+        String expected1 = "4 CJs Pub 4";
+        String actual1 = r1.toString();
+        assertEquals(expected1, actual1);
+
+        String expected2 = "3 DDs Tavern 3";
+        String actual2 = r2.toString();
+        assertEquals(expected2, actual2);
+
+        String expected3 = "5 MZs Pour House 4";
+        String actual3 = r3.toString();
+        assertEquals(expected3, actual3);
     }
 
-    @Test
-    public void main() {
-    }
+
 }

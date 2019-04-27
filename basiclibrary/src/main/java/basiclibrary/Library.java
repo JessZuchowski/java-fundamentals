@@ -5,81 +5,128 @@ package basiclibrary;
 
 import java.util.*;
 
+
 public class Library {
-//    public boolean someLibraryMethod() {
-//        return true;
-//    }
+    public static void main(String[] args) {
+        //TESTS
+        //Lab 02 Feature 1 test
+        roll(3);
+        roll(5);
+        roll(7);
 
-//Lab 02 feature 1:
-//Write a method called roll that accepts an integer n and rolls a d6 n times. This method should return an array containing the values of the rolls.
-//example: roll(4) returns [3, 2, 1, 5]
+        //Lab 02 Feature 2 tests
+        int[] falseArray1 = {1, 2, 3};
+        containsDuplicates(falseArray1);
 
-//    public class dieRoll {
-//        public static int n = 4;
-//            public static void main(String[] args) {
-//            int[] die  = new int[6];
-//            for (int i = 0, i < 6; i++) die[i] = 0;
-//
-//            for (int k = 0; k < n; k++) {
-//                int roll = (int) (6* Math.random() + 1);
-//                die[roll]++;
-//            }
-//            System.out.println("roll" + n);
-//        }
-//        for (int i = 1; i < 7; i++)
-//            System.out.println(Arrays.toString(die));
-//    }
+        int[] falseArray2 = {4, 5, 6, 7};
+        containsDuplicates(falseArray2);
 
+        int[] trueArray1 = {1, 1, 2, 2, 3, 3,};
+        containsDuplicates(trueArray1);
 
-//    public static void main(String[] args) {
-//        int die = 6;
-//        int randomRoll = (int) (Math.random() * die) + 1;
-//        System.out.println(randomRoll);
-//    }
+        int[] trueArray2 = {4, 5, 6, 7, 7};
+        containsDuplicates(trueArray2);
 
+        //Lab 02 Feature 3 tests
+        int[] averageArray1 = {2, 4, 6};
+        averages(averageArray1);
 
-//    public static int[] roll(int num) {
-//        int max = 6;
-//        int min = 1;
-//        int range = max - min + 1;
-//
-//        for (int i = 0; i < 6; i++) {
-//            int roll = (int)(Math.random() * range) + min;
-//
-//            System.out.println(random);
-//        }
-//    }
-    //Lab 03 feature 1: Iterate through data to find min and max values using HashSet of type Integet to keep track of all unigue temperateures. Iterate from min temp to max temp and print any temps not seen.
-   public static void main(String[] args) {
-      int[][] weeklyMonthTemperatures = {
-              {66, 64, 58, 65, 71, 57, 60},
-              {57, 65, 65, 70, 72, 65, 51},
-              {55, 54, 60, 53, 59, 57, 61},
-              {65, 56, 55, 52, 55, 62, 57}
-      };
+        int[] averageArray2 = {3, 5, 7, 9};
+        averages(averageArray2);
 
-      analyzeWeatherData(weeklyMonthTemperatures);
-      }
+        int[] averageArray3 = {1, 2, 3, 4, 5, 6};
+        averages(averageArray3);
 
-      public static void analyzeWeatherData(int[][] weather) {
+        //Lab 02 Feature 4 test
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        lowestAverage(weeklyMonthTemperatures);
 
-          HashSet<Integer> set = new HashSet<>();
+        //Lab 03 Feature 1 test
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        analyzeWeatherData(weeklyMonthTemperatures);
+    }
+//METHODS
+//Lab 02 Feature 1: Write a method called roll that accepts an integer n and rolls a d6 n times. This method should return an array containing the values of the rolls.
+        public static int[] roll(int num){
+            int[] dieRoll = new int[num];
 
-          for (int i = 0; i < weather.length; i++) {
-              for (int j = 0; j < weather[i].length; j++) {
-                  set.add(weather[i][j]);
-              }
-
+            for (int i = 0; i < dieRoll.length; i++) {
+                int randomRoll = (int) Math.round((Math.random() * 6) + 1);
+                dieRoll[i] = randomRoll;
             }
-      int maxTemp = (Collections.max(set));
-      int minTemp = (Collections.min(set));
+            System.out.println("Results of each roll:" + Arrays.toString(dieRoll));
+            return dieRoll;
+        }
+//Lab 02 Feature 2: Write a method called containsDuplicates that returns true or false depending on whether an array contains duplicate values.
+        public static boolean containsDuplicates(int[] dupArray) {
+        for (int i = 0; i < dupArray.length; i++) {
+            for (int j = (i + 1); j < dupArray.length; j++) {
+                if (dupArray[i] == dupArray[j]) {
+                    System.out.println("Contains Duplicates: True " + Arrays.toString(dupArray));
+                    return true;
+                }
+            }
+        }
+            System.out.println("Contains Duplicates: False " + Arrays.toString(dupArray));
+            return false;
+    }
+
+//Lab 02 Feature 3: Write a method that accepts an array of integers and calculates and returns the average of all values in the array.
+    public static int averages(int[] avArray) {
+        int sum = 0;
+        int average;
+        for (int i = 0; i < avArray.length; i++) {
+            sum = sum + avArray[i];
+        }
+        average = sum / avArray.length;
+        System.out.println("Array value average: " + average);
+        return average;
+    }
+
+    //Lab 02 Feature 4: Given an array of arrays, calculate the average value for each array and return the array with the lowest average.
+    public static double[] lowestAverage(int[][] weatherArray) {
+        int sum = 0;
+        double average;
+        for (int i = 0; i < weatherArray.length; i++) {
+            for (int j = 0; j < weatherArray[i].length; j++) {
+                sum[i] = sum + weatherArray[i][j];
+            }
+
+        }
+
+    }
+
+//Lab 03 Feature 1: Iterate through data to find min and max values using HashSet of type Integer to keep track of all unique temperatures. Iterate from min temp to max temp and print any temps not seen.
+    public static void analyzeWeatherData(int[][] weather) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i = 0; i < weather.length; i++) {
+            for (int j = 0; j < weather[i].length; j++) {
+                set.add(weather[i][j]);
+            }
+
+        }
+        int maxTemp = (Collections.max(set));
+        int minTemp = (Collections.min(set));
         for (int k = minTemp; k < maxTemp; k++) {
             if (!set.contains(k)) {
                 System.out.println("Never saw temperature:" + k);
             }
         }
-          System.out.println("High:" + maxTemp + " " + "Low:" + minTemp);
-        }
+        System.out.println("High:" + maxTemp + " " + "Low:" + minTemp);
+    }
 }
+
 
 
